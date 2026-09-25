@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: zx-om-ff-bot-hosting
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT app:app
+    envVars:
+      - key: RUNTIME_API_KEY
+        sync: false
